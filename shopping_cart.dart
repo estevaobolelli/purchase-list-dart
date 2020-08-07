@@ -11,10 +11,12 @@ main() {
       print("==== TERMINOU A EXECUTAR ====");
       condicao = false;
     } else if (text == "imprimir") {
-      print(produtos);
-      print("\n");
+      for (var i = 0; i < produtos.length; i++) {
+        print("ITEM $i - ${produtos[i]}");
+      }
     } else {
       produtos.add(text);
+      print("\x1B[2J\x1B[0;0H");
     }
   }
 }
