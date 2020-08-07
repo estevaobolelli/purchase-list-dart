@@ -11,20 +11,26 @@ main() {
       print("==== TERMINOU A EXECUTAR ====");
       condicao = false;
     } else if (text == "imprimir") {
-      for (var i = 0; i < produtos.length; i++) {
-        print("ITEM $i - ${produtos[i]}");
-      }
+      imprimir(produtos);
     } else if (text == "remover") {
-      print("==== QUAL ITEM DESEJA REMOFVER? ====");
-      for (var i = 0; i < produtos.length; i++) {
-        print("ITEM $i - ${produtos[i]}");
-      }
-      int item = int.parse(stdin.readLineSync());
-      produtos.removeAt(item);
-      print("==== ITEM REMOVIDO ====");
+      remover(produtos);
     } else {
       produtos.add(text);
       print("\x1B[2J\x1B[0;0H");
     }
   }
+}
+
+imprimir(produtos) {
+  for (var i = 0; i < produtos.length; i++) {
+    print("ITEM $i - ${produtos[i]}");
+  }
+}
+
+remover(produtos) {
+  print("==== QUAL ITEM DESEJA REMOFVER? ====");
+  imprimir(produtos);
+  int item = int.parse(stdin.readLineSync());
+  produtos.removeAt(item);
+  print("==== ITEM REMOVIDO ====");
 }
